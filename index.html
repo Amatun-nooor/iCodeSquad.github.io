@@ -26,11 +26,11 @@
           <!-- NAVIGATION -->
           <ul class="nav-ul">
             <i class="fas fa-times close"></i>
-            <li><a href="#home" class="nav-link smooth-scroll">Home</a></li>
-            <li><a href="#services" class="nav-link smooth-scroll">Services</a></li>
-            <li><a href="#about" class="nav-link smooth-scroll">About</a></li>
-            <li><a href="#contact" class="nav-link smooth-scroll">Contact</a></li>
-            <li><a href="#blog" class="nav-link smooth-scroll">Blog</a></li>
+            <li><a href="#home" class="nav-link smooth-scroll" onclick="opentab('home')">Home</a></li>
+            <li><a href="#services" class="nav-link smooth-scroll" onclick="opentab('services')">Services</a></li>
+            <li><a href="#about" class="nav-link smooth-scroll" onclick="opentab('about')">About</a></li>
+            <li><a href="#contact" class="nav-link smooth-scroll" onclick="opentab('contact')">Contact</a></li>
+            <li><a href="#blog" class="nav-link smooth-scroll" onclick="opentab('blog')">Blog</a></li>
           </ul>
           <i class="fas fa-search search"></i>
         </nav>
@@ -264,7 +264,20 @@
         </form>
       </div>
     </div>
-    
+    <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>
